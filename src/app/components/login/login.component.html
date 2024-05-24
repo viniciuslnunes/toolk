@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="center-content">
+    <form (ngSubmit)="goToUserPage()" [formGroup]="signupForm">
+      <mat-form-field appearance="outline" >
+        <span class="login">LOGIN</span>
+        <mat-form-field  class="default-form-field">
+          <mat-icon matPrefix class="internal-icon material-icons-outlined"
+            >email_outlined</mat-icon
+          >
+          <mat-label>Usuário:</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            maxlength="100"
+          />
+        </mat-form-field>
+
+        <mat-form-field  class="default-form-field">
+          <mat-icon matPrefix class="internal-icon">lock_outlined</mat-icon>
+          <mat-label>Senha:</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            autocomplete="new-password"
+          />
+        </mat-form-field>
+
+        <div class="full-width">
+          <button
+            mat-raised-button
+            class="full-width button-color"
+            [disabled]="
+              !signupForm.get('email')?.value ||
+              !signupForm.get('password')?.value
+            "
+            (click)="submit()"
+          >
+            ENTRAR
+          </button>
+        </div>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
